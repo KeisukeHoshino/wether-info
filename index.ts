@@ -1,5 +1,12 @@
 import { Client, GatewayIntentBits, Message } from 'discord.js';
 import * as dotenv from 'dotenv';
+import http from 'http';
+
+// Koyeb用ヘルスチェックサーバー
+http.createServer((req, res) => {
+  res.writeHead(200);
+  res.end('Bot is online!');
+}).listen(process.env.PORT || 8000);
 
 // .envファイルの読み込み
 dotenv.config();
